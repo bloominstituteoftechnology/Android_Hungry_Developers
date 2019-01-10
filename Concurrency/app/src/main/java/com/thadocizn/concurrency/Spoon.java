@@ -8,7 +8,7 @@ public class Spoon {
 
     public Spoon(int id) {
         this.id = id;
-        this.lock = new Semaphore(1);
+        this.lock = new Semaphore(1, true);
     }
 
     public void pickUp(){

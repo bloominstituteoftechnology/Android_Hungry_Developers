@@ -14,11 +14,18 @@ public class Developer implements Runnable {
     }
 
     public void eat() {
-        leftSpoon.pickUp();
-        rightSpoon.pickUp();
-        Log.i("DevActivity",String.format("Dev %s is eating.",id));
+        if (leftSpoon.id < rightSpoon.id) {
+            leftSpoon.pickUp();
+            rightSpoon.pickUp();
+        } else {
+            leftSpoon.pickUp();
+
+            rightSpoon.pickUp();
+        }
+        Log.i("DevActivity", String.format("Dev %s is eating.", id));
         try {
-            Thread.sleep((long) (Math.random()*2000));
+            Thread.sleep((long) (Math.random() * 2000));
+//            Thread.sleep(1);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -27,7 +34,7 @@ public class Developer implements Runnable {
     public void think() {
         leftSpoon.putDown();
         rightSpoon.putDown();
-        Log.i("DevActivity",String.format("Dev %s is thinking.",id));
+        Log.i("DevActivity", String.format("Dev %s is thinking.", id));
     }
 
 

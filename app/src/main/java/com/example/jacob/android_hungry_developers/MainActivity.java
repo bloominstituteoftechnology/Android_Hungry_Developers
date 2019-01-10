@@ -29,6 +29,5 @@ public class MainActivity extends AppCompatActivity {
         new Thread(dev4).start();
         Developer dev5 = new Developer(5, spoon4, spoon5);
         new Thread(dev5).start();
-        Log.i("Info","All dev threads started");
     }
 }

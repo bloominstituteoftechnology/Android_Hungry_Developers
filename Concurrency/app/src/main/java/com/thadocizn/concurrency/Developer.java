@@ -21,6 +21,9 @@ public class Developer {
     }
 
     public void run(){
-
+        while (true){
+            think();
+            eat();
+        }
     }
 }

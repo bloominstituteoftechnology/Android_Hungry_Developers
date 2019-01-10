@@ -4,8 +4,10 @@ import java.util.concurrent.Semaphore;
 
 public class Spoon {
     private Semaphore lock;
+    private int index;
 
-    public Spoon() {
+    public Spoon(int index) {
+        this.index = index;
         this.lock = new Semaphore(1);
     }
 
@@ -29,5 +31,9 @@ public class Spoon {
 
     public void release(){
         lock.release();
+    }
+
+    public int getIndex() {
+        return index;
     }
 }

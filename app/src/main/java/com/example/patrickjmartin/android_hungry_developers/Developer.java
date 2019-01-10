@@ -29,7 +29,7 @@ public class Developer implements Runnable {
             if(RSpoon.pickUp()) {
                 Log.i("Developer Activity ---", String.format("Dev %s is eating.", id));
                 try {
-                    Thread.sleep((long) (Math.random() * 500));
+                    Thread.sleep((long) (Math.random() * 1000));
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

@@ -1,6 +1,9 @@
 package com.joshuahalvorson.android_hungry_developers;
 
+import android.app.Activity;
+import android.graphics.Color;
 import android.util.Log;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 
@@ -8,11 +11,15 @@ public class Developer implements Runnable{
     private String name;
     private Spoon leftSpoon, rightSpoon;
     private boolean leftSpoonHeld, rightSpoonHeld;
+    private ImageView imageView;
+    private Activity activity;
 
-    public Developer(String name, Spoon leftSpoon, Spoon rightSpoon) {
+    public Developer(String name, Spoon leftSpoon, Spoon rightSpoon, ImageView imageView, Activity activity) {
         this.name = name;
         this.leftSpoon = leftSpoon;
         this.rightSpoon = rightSpoon;
+        this.imageView = imageView;
+        this.activity = activity;
         this.leftSpoonHeld = false;
         this.rightSpoonHeld = false;
     }
@@ -63,9 +70,24 @@ public class Developer implements Runnable{
             leftSpoon.putDown();
             leftSpoonHeld = false;
             Log.i("DeveloperThinking", this.name + " left spoon put down - spoon id: " + leftSpoon.getIndex());
+
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    imageView.setBackgroundColor(Color.GREEN);
+
+                }
+            });
+
         }
         if(!leftSpoonHeld && !rightSpoonHeld){
             Log.i("DeveloperThinking", this.name + " finish eating");
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    imageView.setBackgroundColor(Color.WHITE);
+                }
+            });
         }
     }
 

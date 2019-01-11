@@ -4,6 +4,8 @@ For this project, you'll write a program that simulates five developers at a tab
 
 This project will help you practice the concepts learned in the Concurreny lesson of Sprint 7 in Lambda's full time Android course. After completing the lesson material and this project, you should be able to:
 
+* Remember, a UI is not required for this assignment, hwever, I think it is more fun with one, if you don't have a UI, you'll have to log the developers' statuses some other way *
+
 - identify code that could cause race conditions
 - use locks and semaphores to share data safely
 - avoid code which could result in deadlocks

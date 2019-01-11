@@ -18,7 +18,13 @@ public class Developer {
     }
 
     public void eat(){
-
+        try {
+            Thread.sleep(250);
+            this.leftSpoon.putDown();
+            this.rightSpoon.putDown();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public void run(){

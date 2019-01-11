@@ -13,7 +13,8 @@ public class Developer {
     }
 
     public void think(){
-
+        this.leftSpoon.pickUp();
+        this.rightSpoon.pickUp();
     }
 
     public void eat(){

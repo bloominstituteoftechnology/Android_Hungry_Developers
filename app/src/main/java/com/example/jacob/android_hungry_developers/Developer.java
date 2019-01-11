@@ -14,7 +14,7 @@ public class Developer implements Runnable {
     }
 
     public void eat() {
-        while ((leftSpoon.devId != id) && (rightSpoon.devId != id)) {
+        do {
             try {
                 Thread.sleep((long) (Math.random() * 1000));
             } catch (InterruptedException e) {
@@ -26,8 +26,9 @@ public class Developer implements Runnable {
             if (rightSpoon.devId != id) {
                 rightSpoon.pickUp(id);
             }
-        }
-        Log.i("DevActivity", String.format("Dev %s is eating.", id));
+        } while (((leftSpoon.devId != id) && (rightSpoon.devId != id)));
+
+        Log.i("DevActivity", String.format("Dev %s is eating with left spoon assigned to Dev %s and right spoon assigned to Dev %s.", id, leftSpoon.devId, rightSpoon.devId));
         leftSpoon.clean = false;
         rightSpoon.clean = false;
         try {

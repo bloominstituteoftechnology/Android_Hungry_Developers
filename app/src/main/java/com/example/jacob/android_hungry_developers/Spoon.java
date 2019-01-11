@@ -35,11 +35,11 @@ public class Spoon {
                         e.printStackTrace();
                     }
                     if (lockSuccess) {
-                        Log.i("DevActivity", String.format("Dev %s stole a clean spoon from Dev %s.", requestingDevId, id));
+                        Log.i("RequestingActivity/DevActivity", String.format("Dev %s stole a clean spoon from Dev %s.", requestingDevId, id));
                         devId = requestingDevId;
                     }
                 } else {
-                    Log.i("DevActivity", String.format("Dev %s requested a spoon from Dev %s but was denied.", requestingDevId, id));
+                    Log.i("RequestingActivity/DevActivity", String.format("Dev %s requested a spoon from Dev %s but was denied.", requestingDevId, id));
                     lockSuccess = false;
                 }
 
@@ -51,7 +51,7 @@ public class Spoon {
                     e.printStackTrace();
                 }
                 if (lockSuccess) {
-                    Log.i("DevActivity", String.format("Dev %s took a dirty spoon from Dev %s.", requestingDevId, id));
+                    Log.i("RequestingActivity/DevActivity", String.format("Dev %s took a dirty spoon from Dev %s.", requestingDevId, id));
                     devId = requestingDevId;
                     lockSuccess = true;
                     clean = true;
@@ -67,6 +67,7 @@ public class Spoon {
     }
 
     public void putDown() {
+        clean = true;
         lock.release();
     }
 }

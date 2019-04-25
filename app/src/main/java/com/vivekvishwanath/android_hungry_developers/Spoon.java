@@ -5,11 +5,11 @@ import java.util.concurrent.Semaphore;
 public class Spoon {
 
     private Semaphore lock;
-    private int spoonNumber;
+    private int index;
 
-    public Spoon(int spoonNumber) {
+    public Spoon(int index) {
         lock = new Semaphore(1);
-        this.spoonNumber = spoonNumber;
+        this.index = index;
     }
 
     public void pickUp() {
@@ -27,7 +27,7 @@ public class Spoon {
         this.lock.release();
     }
 
-    public int getSpoonNumber() {
-        return this.spoonNumber;
+    public int getIndex() {
+        return this.index;
     }
 }

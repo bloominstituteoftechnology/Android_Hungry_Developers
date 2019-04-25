@@ -17,11 +17,18 @@ public class Developer implements Runnable {
     }
 
     private void think() {
-        Log.i("HungryDevelopers", "Developer " + this.name + " is thinking");
-        leftSpoon.pickUp();
-        Log.i("HungryDevelopers", "Developer " + this.name + " picked up left spoon");
-        rightSpoon.pickUp();
-        Log.i("HungryDevelopers", "Developer " + this.name + " picked up right spoon");
+        if (leftSpoon.getIndex() < rightSpoon.getIndex()) {
+            Log.i("HungryDevelopers", "Developer " + this.name + " is thinking");
+            leftSpoon.pickUp();
+            Log.i("HungryDevelopers", "Developer " + this.name + " picked up left spoon");
+            rightSpoon.pickUp();
+            Log.i("HungryDevelopers", "Developer " + this.name + " picked up right spoon");
+        } else if (leftSpoon.getIndex() > rightSpoon.getIndex()) {
+            rightSpoon.pickUp();
+            Log.i("HungryDevelopers", "Developer " + this.name + " picked up right spoon");
+            leftSpoon.pickUp();
+            Log.i("HungryDevelopers", "Developer " + this.name + " picked up left spoon");
+        }
     }
 
     private void eat() {

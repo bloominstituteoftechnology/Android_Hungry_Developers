@@ -5,10 +5,12 @@ import java.util.concurrent.Semaphore;
 public class Spoon {
     private boolean up;
     private Semaphore inUse;
+    private int index;
 
-    public Spoon() {
+    public Spoon(int index) {
         this.up = false;
         inUse = new Semaphore(1);
+        this.index = index;
     }
 
     public void pickUp(){
@@ -27,5 +29,9 @@ public class Spoon {
 
     public boolean isUp() {
         return up;
+    }
+
+    public int getIndex() {
+        return index;
     }
 }

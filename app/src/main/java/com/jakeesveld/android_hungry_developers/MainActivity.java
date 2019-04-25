@@ -12,11 +12,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Spoon spoon1 = new Spoon();
-        Spoon spoon2 = new Spoon();
-        Spoon spoon3 = new Spoon();
-        Spoon spoon4 = new Spoon();
-        Spoon spoon5 = new Spoon();
+        Spoon spoon1 = new Spoon(1);
+        Spoon spoon2 = new Spoon(2);
+        Spoon spoon3 = new Spoon(3);
+        Spoon spoon4 = new Spoon(4);
+        Spoon spoon5 = new Spoon(5);
 
         List<Developer> developers = new ArrayList<>();
         developers.add(new Developer(spoon1, spoon5, 1));

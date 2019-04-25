@@ -15,7 +15,13 @@ public class Developer implements Runnable {
 
     private void think(Spoon pickupSpoon){
         pickupSpoon.pickUp();
-        Log.i("Developers", id + " is thinking about " + pickupSpoon);
+        String pickupSpoonName = "";
+        if(pickupSpoon == leftSpoon){
+            pickupSpoonName = "their Left Spoon";
+        }else if (pickupSpoon == rightSpoon){
+            pickupSpoonName = "their Right Spoon";
+        }
+        Log.i("Developers", id + " is thinking about " + pickupSpoonName);
     }
 
     private void eat(){
@@ -33,12 +39,29 @@ public class Developer implements Runnable {
     @Override
     public void run() {
         while(true){
-            if(!leftSpoon.isUp()){
+
+            if(!leftSpoon.isUp() || !rightSpoon.isUp()){
+                if(!leftSpoon.isUp()){
+                    if(leftSpoon.getIndex() > rightSpoon.getIndex()){
+                        think(leftSpoon);
+                    }else if(rightSpoon.isUp()){
+                        think(leftSpoon);
+                    }
+                }
+                if(!rightSpoon.isUp()){
+                    if(rightSpoon.getIndex() > leftSpoon.getIndex()){
+                        think(rightSpoon);
+                    }else if(leftSpoon.isUp()){
+                        think(rightSpoon);
+                    }
+                }
+            }
+/*            if(!leftSpoon.isUp()){
                 think(leftSpoon);
             }
             if(!rightSpoon.isUp()){
                 think(rightSpoon);
-            }
+            }*/
             if(leftSpoon.isUp() && rightSpoon.isUp()){
                 eat();
             }

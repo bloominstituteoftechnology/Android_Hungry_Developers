@@ -4,7 +4,7 @@ import java.util.concurrent.Semaphore;
 
 public class Spoon {
 	
-	private final Semaphore spoonLock;
+	private Semaphore spoonLock;
 	
 	public Spoon() {
 		spoonLock = new Semaphore(1);

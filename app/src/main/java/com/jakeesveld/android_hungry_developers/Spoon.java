@@ -1,34 +1,25 @@
 package com.jakeesveld.android_hungry_developers;
 
+import android.util.Log;
+
 import java.util.concurrent.Semaphore;
 
 public class Spoon {
-    private boolean up;
     private Semaphore inUse;
     private int index;
 
     public Spoon(int index) {
-        this.up = false;
         inUse = new Semaphore(1);
         this.index = index;
     }
 
-    public void pickUp(){
-        try {
-            inUse.acquire();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        this.up = true;
+    public boolean pickUp(){
+       return inUse.tryAcquire();
     }
 
-    public void putDown(){
-        this.up = false;
+    public void putDown(int id){
+        Log.i("Developers", "Spoon " + this.index + " was put down by " + id );
         inUse.release();
-    }
-
-    public boolean isUp() {
-        return up;
     }
 
     public int getIndex() {

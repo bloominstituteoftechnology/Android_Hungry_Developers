@@ -13,57 +13,66 @@ public class Developer implements Runnable {
         this.id = id;
     }
 
-    private void think(Spoon pickupSpoon){
-        pickupSpoon.pickUp();
-        String pickupSpoonName = "";
-        if(pickupSpoon == leftSpoon){
-            pickupSpoonName = "their Left Spoon";
-        }else if (pickupSpoon == rightSpoon){
-            pickupSpoonName = "their Right Spoon";
+    private boolean think(Spoon pickupSpoon) {
+
+
+        if (pickupSpoon.pickUp()) {
+            return true;
+        }else{
+            return false;
         }
-        Log.i("Developers", id + " is thinking about " + pickupSpoonName);
+
     }
 
     private void eat(){
-        Log.i("Developers", id + " is eating");
+        leftSpoon.putDown(this.id);
+        rightSpoon.putDown(this.id);
         try {
-            Thread.sleep((long) (Math.random() * 1500));
+            Thread.sleep((long) (Math.random() * 4500));
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        leftSpoon.putDown();
-        rightSpoon.putDown();
-        Log.i("Developers", id + " put down their spoons");
+
+
     }
 
     @Override
     public void run() {
+        boolean pickedUpLeft = false;
+        boolean pickedUpRight = false;
         while(true){
+            if(leftSpoon.getIndex() > rightSpoon.getIndex()){
+                if(think(leftSpoon)) {
+                    pickedUpLeft = true;
+                    Log.i("Developers", this.id + " picked up their left spoon");
+                    if (think(rightSpoon)) {
+                        pickedUpRight = true;
+                        Log.i("Developers", this.id + " picked up their right spoon");
+                    } else {
+                        leftSpoon.putDown(this.id);
+                        pickedUpLeft = false;
+                    }
+                }
+            }else {
+                if (think(rightSpoon)) {
+                    pickedUpRight = true;
+                    Log.i("Developers", this.id + " picked up their right spoon");
+                    if (think(leftSpoon)) {
+                        pickedUpLeft = true;
+                        Log.i("Developers", this.id + " picked up their left spoon");
+                    } else {
+                        rightSpoon.putDown(this.id);
+                        pickedUpRight = false;
+                    }
+                }
+            }
 
-            if(!leftSpoon.isUp() || !rightSpoon.isUp()){
-                if(!leftSpoon.isUp()){
-                    if(leftSpoon.getIndex() > rightSpoon.getIndex()){
-                        think(leftSpoon);
-                    }else if(rightSpoon.isUp()){
-                        think(leftSpoon);
-                    }
-                }
-                if(!rightSpoon.isUp()){
-                    if(rightSpoon.getIndex() > leftSpoon.getIndex()){
-                        think(rightSpoon);
-                    }else if(leftSpoon.isUp()){
-                        think(rightSpoon);
-                    }
-                }
-            }
-/*            if(!leftSpoon.isUp()){
-                think(leftSpoon);
-            }
-            if(!rightSpoon.isUp()){
-                think(rightSpoon);
-            }*/
-            if(leftSpoon.isUp() && rightSpoon.isUp()){
+
+            if(pickedUpLeft && pickedUpRight){
+                Log.i("Developers", id + " is eating");
                 eat();
+                pickedUpLeft = false;
+                pickedUpRight = false;
             }
         }
     }

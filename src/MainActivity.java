@@ -6,18 +6,18 @@ public class MainActivity {
         Developer[] developers = new Developer[5];
         Spoon[] spoons = new Spoon[5];
 
-        developers[0] = new Developer("Spencer");
-        developers[1] = new Developer("Jake");
-        developers[2] = new Developer("Brandon");
-        developers[3] = new Developer("Basil");
-        developers[4] = new Developer("Vivek");
+        developers[0] = new Developer("Dev1");
+        developers[1] = new Developer("Dev2");
+        developers[2] = new Developer("Dev3");
+        developers[3] = new Developer("Dev4");
+        developers[4] = new Developer("Dev5");
 
 
-        spoons[0] = new Spoon();
-        spoons[1] = new Spoon();
-        spoons[2] = new Spoon();
-        spoons[3] = new Spoon();
-        spoons[4] = new Spoon();
+        spoons[0] = new Spoon(0);
+        spoons[1] = new Spoon(1);
+        spoons[2] = new Spoon(2);
+        spoons[3] = new Spoon(3);
+        spoons[4] = new Spoon(4);
 
         for (int i = 0; i < developers.length; ++i){ //assign spoons
             if (i==0) {

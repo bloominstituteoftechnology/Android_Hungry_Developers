@@ -14,33 +14,35 @@ public class Developer implements Runnable {
     }
 
     public void think() {
-        Log.i(TAG, "\"" + this.name + "\" begins thinking at " + System.currentTimeMillis());
-
-        leftSpoon.pickUp();
-        rightSpoon.pickUp();
-
-        Log.i(TAG, "\"" + this.name + "\" finishes thinking at " + System.currentTimeMillis());
+        if (this.leftSpoon.getIndex() > this.rightSpoon.getIndex()) {
+            rightSpoon.pickUp();
+            leftSpoon.pickUp();
+        } else {
+            leftSpoon.pickUp();
+            rightSpoon.pickUp();
+        }
     }
 
     public void eat() {
-        Log.i(TAG, "\"" + this.name + "\" begins eating at " + System.currentTimeMillis());
-
         try {
-            Thread.sleep(100);
+            Thread.sleep(25);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         rightSpoon.putDown();
         leftSpoon.putDown();
-
-        Log.i(TAG, "\"" + this.name + "\" finishes eating at " + System.currentTimeMillis());
     }
 
     @Override
     public void run() {
         while (true) {
+            Log.i(TAG, "\"" + this.name + "\" begins thinking at " + System.currentTimeMillis());
             think();
+            Log.i(TAG, "\"" + this.name + "\" finishes thinking at " + System.currentTimeMillis());
+
+            Log.i(TAG, "\"" + this.name + "\" begins eating at " + System.currentTimeMillis());
             eat();
+            Log.i(TAG, "\"" + this.name + "\" finishes eating at " + System.currentTimeMillis());
         }
     }
 }

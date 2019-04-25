@@ -8,9 +8,11 @@ public class Spoon {
     private static final String TAG = "Spoon";
     private Semaphore lock;
     private String name;
+    private int index;
 
-    public Spoon(String name) {
+    public Spoon(String name, int index) {
         this.name = name;
+        this.index = index;
         this.lock = new Semaphore(1);
     }
 
@@ -26,5 +28,9 @@ public class Spoon {
     public void putDown() {
         Log.i(TAG, "    \"" + this.name + "\" put down at " + System.currentTimeMillis());
         this.lock.release();
+    }
+
+    public int getIndex() {
+        return index;
     }
 }

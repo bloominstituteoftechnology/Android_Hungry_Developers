@@ -13,11 +13,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ArrayList<Spoon> spoons = new ArrayList<>(5);
-        spoons.add(new Spoon("Gold"));
-        spoons.add(new Spoon("Bronze"));
-        spoons.add(new Spoon("Platinum"));
-        spoons.add(new Spoon("Silver"));
-        spoons.add(new Spoon("Copper"));
+        spoons.add(new Spoon("Gold", 0));
+        spoons.add(new Spoon("Bronze", 1));
+        spoons.add(new Spoon("Platinum", 2));
+        spoons.add(new Spoon("Silver", 3));
+        spoons.add(new Spoon("Copper", 4));
 
         ArrayList<Developer> developers = new ArrayList<>(5);
         developers.add(new Developer("Strawberry", spoons.get(0), spoons.get(1)));

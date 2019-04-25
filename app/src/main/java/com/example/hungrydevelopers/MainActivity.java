@@ -13,11 +13,11 @@ public class MainActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		spoon1 = new Spoon();
-		spoon2 = new Spoon();
-		spoon3 = new Spoon();
-		spoon4 = new Spoon();
-		spoon5 = new Spoon();
+		spoon1 = new Spoon(1);
+		spoon2 = new Spoon(2);
+		spoon3 = new Spoon(3);
+		spoon4 = new Spoon(4);
+		spoon5 = new Spoon(5);
 		
 		
 		dev1 = new Developer(spoon1, spoon2, "dev1");

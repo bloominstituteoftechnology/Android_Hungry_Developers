@@ -16,8 +16,14 @@ public class Developer implements Runnable {
 	
 	public void think() {
 		Log.i(name, name + " is thinking.");
-		leftSpoon.pickUp();
-		rightSpoon.pickUp();
+		
+		if (leftSpoon.getIndex() < rightSpoon.getIndex()) {
+			leftSpoon.pickUp();
+			rightSpoon.pickUp();
+		} else {
+			rightSpoon.pickUp();
+			leftSpoon.pickUp();
+		}
 	}
 	
 	public void eat() {
@@ -29,7 +35,7 @@ public class Developer implements Runnable {
 		}
 		
 		leftSpoon.putDown();
-		rightSpoon.pickUp();
+		rightSpoon.putDown();
 	}
 	
 	public void run() {

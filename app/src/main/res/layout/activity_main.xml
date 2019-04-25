@@ -13,7 +13,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />-->
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/weapon_0"
@@ -124,6 +124,6 @@
         app:srcCompat="@drawable/bottle_t"
         app:layout_constraintBottom_toTopOf="@+id/weapon_4"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weapon_0" />
+        app:layout_constraintTop_toBottomOf="@+id/weapon_0" /> -->
 
 </android.support.constraint.ConstraintLayout>

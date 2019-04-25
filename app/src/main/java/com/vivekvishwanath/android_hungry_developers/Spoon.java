@@ -26,4 +26,8 @@ public class Spoon {
     public void putDown() {
         this.lock.release();
     }
+
+    public int getSpoonNumber() {
+        return this.spoonNumber;
+    }
 }

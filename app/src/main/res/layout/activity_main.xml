@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!--<TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <ImageView
+        android:id="@+id/weapon_0"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/sl_axe_t"
+        app:layout_constraintBottom_toTopOf="@+id/drink_4"
+        app:layout_constraintEnd_toStartOf="@+id/drink_0"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/drink_0"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="22dp"
+        android:background="@color/warrior_0"
+        app:srcCompat="@drawable/bottle_t"
+        app:layout_constraintEnd_toStartOf="@+id/weapon_1"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/weapon_0"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/weapon_1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/sl_axe_t"
+        app:layout_constraintBottom_toTopOf="@+id/drink_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/drink_0"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/drink_3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@color/warrior_3"
+        app:srcCompat="@drawable/bottle_t"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/weapon_3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weapon_4" />
+
+    <ImageView
+        android:id="@+id/weapon_3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="22dp"
+        app:srcCompat="@drawable/sl_axe_t"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/drink_2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/drink_3" />
+
+    <ImageView
+        android:id="@+id/drink_2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@color/warrior_2"
+        app:srcCompat="@drawable/bottle_t"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/weapon_3"
+        app:layout_constraintTop_toBottomOf="@+id/weapon_2" />
+
+    <ImageView
+        android:id="@+id/weapon_2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginRight="20dp"
+        app:srcCompat="@drawable/sl_axe_t"
+        app:layout_constraintBottom_toTopOf="@+id/drink_2"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/drink_1" />
+
+    <ImageView
+        android:id="@+id/drink_1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/warrior_1"
+        app:srcCompat="@drawable/bottle_t"
+        app:layout_constraintBottom_toTopOf="@+id/weapon_2"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weapon_1" />
+
+    <ImageView
+        android:id="@+id/weapon_4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="20dp"
+        app:srcCompat="@drawable/sl_axe_t"
+        app:layout_constraintBottom_toTopOf="@+id/drink_3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/drink_4" />
+
+    <ImageView
+        android:id="@+id/drink_4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="20dp"
+        android:background="@color/warrior_4"
+        app:srcCompat="@drawable/bottle_t"
+        app:layout_constraintBottom_toTopOf="@+id/weapon_4"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weapon_0" />
+
+</android.support.constraint.ConstraintLayout>

@@ -4,10 +4,10 @@ import java.util.concurrent.Semaphore;
 
 public class Spoon {
     private boolean up;
-    Semaphore inUse;
+    private Semaphore inUse;
 
-    public Spoon(boolean up) {
-        this.up = up;
+    public Spoon() {
+        this.up = false;
         inUse = new Semaphore(1);
     }
 
@@ -23,5 +23,9 @@ public class Spoon {
     public void putDown(){
         this.up = false;
         inUse.release();
+    }
+
+    public boolean isUp() {
+        return up;
     }
 }

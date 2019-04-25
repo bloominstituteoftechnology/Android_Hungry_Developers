@@ -14,33 +14,33 @@ public class Developer implements Runnable {
     }
 
     public void think() {
-        Log.i(TAG, "\""+this.name + "\" begins thinking at " + System.currentTimeMillis());
+        Log.i(TAG, "\"" + this.name + "\" begins thinking at " + System.currentTimeMillis());
 
         leftSpoon.pickUp();
         rightSpoon.pickUp();
 
-        Log.i(TAG, "\""+this.name + "\" finishes thinking at " + System.currentTimeMillis());
+        Log.i(TAG, "\"" + this.name + "\" finishes thinking at " + System.currentTimeMillis());
     }
 
     public void eat() {
-        Log.i(TAG, "\""+this.name + "\" begins eating at " + System.currentTimeMillis());
+        Log.i(TAG, "\"" + this.name + "\" begins eating at " + System.currentTimeMillis());
 
         try {
-            Thread.sleep(50);
+            Thread.sleep(100);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         rightSpoon.putDown();
         leftSpoon.putDown();
 
-        Log.i(TAG, "\""+this.name + "\" finishes eating at " + System.currentTimeMillis());
+        Log.i(TAG, "\"" + this.name + "\" finishes eating at " + System.currentTimeMillis());
     }
 
+    @Override
     public void run() {
         while (true) {
             think();
             eat();
         }
     }
-
 }

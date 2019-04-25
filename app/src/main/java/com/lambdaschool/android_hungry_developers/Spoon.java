@@ -15,12 +15,16 @@ public class Spoon {
     }
 
     public void pickUp() {
-        Log.i(TAG, "    \"" +this.name + "\" picked up at " + System.currentTimeMillis());
-
+        try {
+            this.lock.acquire();
+            Log.i(TAG, "    \"" + this.name + "\" picked up at " + System.currentTimeMillis());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public void putDown() {
-        Log.i(TAG, "    \"" +this.name + "\" put down at " + System.currentTimeMillis());
-
+        Log.i(TAG, "    \"" + this.name + "\" put down at " + System.currentTimeMillis());
+        this.lock.release();
     }
 }
